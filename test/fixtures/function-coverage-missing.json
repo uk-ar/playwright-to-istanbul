@@ -1,6 +1,6 @@
 [
   {
-    "url": "file:////Users/benjamincoe/bcoe/puppeteer-to-istanbul/test/sample_js/function-coverage-missing-1.js",
+    "url": "file:////home/yuuki.linux/puppeteer-to-istanbul/test/sample_js/function-coverage-missing-1.js",
     "ranges": [
       {
         "start": 0,

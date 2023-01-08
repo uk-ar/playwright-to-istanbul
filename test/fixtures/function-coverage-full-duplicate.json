@@ -1,6 +1,6 @@
 [
   {
-    "url": "file:////Users/benjamincoe/bcoe/puppeteer-to-istanbul/test/sample_js/function-coverage-100.js",
+    "url": "file:////home/yuuki.linux/puppeteer-to-istanbul/test/sample_js/function-coverage-100.js",
     "ranges": [
       {
         "start": 0,
@@ -18,7 +18,7 @@
     "text": "function a (num1, num2) {\n  return num1 + num2\n}\n\nfunction b (num) {\n  return num + 1\n}\n\na(1, 2)\nb(3)\n"
   },
   {
-    "url": "file:////Users/benjamincoe/bcoe/puppeteer-to-istanbul/test/sample_js/function-coverage-100.js",
+    "url": "file:////home/yuuki.linux/puppeteer-to-istanbul/test/sample_js/function-coverage-100.js",
     "ranges": [
       {
         "start": 0,

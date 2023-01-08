@@ -1,6 +1,6 @@
 [
   {
-    "url": "file:////Users/benjamincoe/bcoe/puppeteer-to-istanbul/test/sample_js/block-logical-not-covered.js",
+    "url": "file:////home/yuuki.linux/puppeteer-to-istanbul/test/sample_js/block-logical-not-covered.js",
     "ranges": [
       {
         "start": 0,
