@@ -2,9 +2,9 @@
 
 const fs = require('fs')
 const path = require('path')
-const puppeteer = require('puppeteer')
+const { chromium } = require('playwright')
 require('yargs') // eslint-disable-line
-  .usage('$0 <input> <output>', 'output coverage data from puppeteer', (yargs) => {
+  .usage('$0 <input> <output>', 'output coverage data from playwright', (yargs) => {
     yargs
       .positional('input', {
         default: 'test/sample_js/sample1.js',
@@ -14,7 +14,7 @@ require('yargs') // eslint-disable-line
         default: 'test/fixtures/out.json'
       })
   }, (argv) => {
-    outputPuppeteerCoverage(
+    outputPlaywrightCoverage(
       path.resolve(process.cwd(), argv.input),
       path.resolve(process.cwd(), argv.output)
     )
@@ -23,30 +23,50 @@ require('yargs') // eslint-disable-line
   .demandCommand(1)
   .argv
 
-async function outputPuppeteerCoverage (input, output) {
-  const browser = await puppeteer.launch()
+async function outputPlaywrightCoverage(input, output) {
+  const browser = await chromium.launch()
   const page = await browser.newPage()
 
   // Enable both JavaScript and CSS coverage
   await Promise.all([
-    page.coverage.startJSCoverage(),
-    page.coverage.startCSSCoverage()
+    page.coverage.startJSCoverage({ resetOnNavigation: false }),
+    page.coverage.startCSSCoverage({ resetOnNavigation: false })
   ])
 
   // Script src goes up two directories, since it is in /bin/tmp
   // This makes it so the script is specified from the project directory level
+  // <script src='../../${input}'></script>
+  // node bin/puppeteer-js-runner.js ./test/sample_js/block-else-not-covered.js ./test/fixtures/inline-and-external-script-coverage.json
   const pageHtml = `
   <html>
   <head>
-    <script src='../../${input}'></script>
+    <script>
+    function c(num1, num2) {
+  return num2 * num1;
+}
+function d(num3) {
+  return num3;
+}
+c(4,3);
+    </script>
+    <script>
+    function e(num4, num5, num6) {
+  return num4 * num5 - num6;
+}
+e(3,5,6);
+    </script>
   </head>
   </html>`
 
-  fs.writeFileSync('/tmp/puppeteerTemp.html', pageHtml, 'utf8')
+  fs.writeFileSync('/tmp/playwrightTemp.html', pageHtml, 'utf8')
 
   // Navigate to page
-  let url = 'file:///' + '/tmp/puppeteerTemp.html'
+  //let url = 'file:///' + '/tmp/playwrightTemp.html'
+  let url = 'http://' + 'localhost:9000/'
   await page.goto(url)
+  // node bin/puppeteer-js-runner.js ./test/sample_js/function-coverage-100.js ./test/fixtures/function-coverage-full-duplicate.json
+  // node bin/puppeteer-js-runner.js ./test/sample_js/function-coverage-100.js ./test/fixtures/function-coverage-full-duplicate.json
+  // await page.goto(url)
 
   // Disable both JavaScript and CSS coverage
   const [jsCoverage, cssCoverage] = await Promise.all([
@@ -59,11 +79,11 @@ async function outputPuppeteerCoverage (input, output) {
   let totalBytes = 0
   let usedBytes = 0
   const coverage = [...jsCoverage, ...cssCoverage]
-  for (const entry of coverage) {
+  /*for (const entry of coverage) {
     totalBytes += entry.text.length
     for (const range of entry.ranges) { usedBytes += range.end - range.start - 1 }
   }
   console.log(`Bytes used: ${usedBytes / totalBytes * 100}%`)
-
+  */
   await browser.close()
 }

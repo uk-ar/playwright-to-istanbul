@@ -1,34 +1,71 @@
 [
   {
-    "url": "file:///tmp/puppeteerTemp.html",
-    "ranges": [
+    "url": "file:///tmp/playwrightTemp.html",
+    "scriptId": "4",
+    "source": "\n    function c(num1, num2) {\n  return num2 * num1;\n}\nfunction d(num3) {\n  return num3;\n}\nc(4,3);\n    ",
+    "functions": [
       {
-        "start": 0,
-        "end": 55
+        "functionName": "",
+        "isBlockCoverage": true,
+        "ranges": [
+          {
+            "startOffset": 0,
+            "endOffset": 102,
+            "count": 1
+          }
+        ]
       },
       {
-        "start": 60,
-        "end": 66
+        "functionName": "c",
+        "isBlockCoverage": true,
+        "ranges": [
+          {
+            "startOffset": 5,
+            "endOffset": 53,
+            "count": 1
+          }
+        ]
       },
       {
-        "start": 109,
-        "end": 126
+        "functionName": "d",
+        "isBlockCoverage": false,
+        "ranges": [
+          {
+            "startOffset": 54,
+            "endOffset": 89,
+            "count": 0
+          }
+        ]
       }
-    ],
-    "text": "\n    function c(num1, num2) {\n      return num2 * num1;\n    }\n    function d(num3) {\n      return num3;\n    }\n    c(4,3);\n    "
+    ]
   },
   {
-    "url": "file:///tmp/puppeteerTemp.html",
-    "ranges": [
+    "url": "file:///tmp/playwrightTemp.html",
+    "scriptId": "5",
+    "source": "\n    function e(num4, num5, num6) {\n  return num4 * num5 - num6;\n}\ne(3,5,6);\n    ",
+    "functions": [
       {
-        "start": 0,
-        "end": 68
+        "functionName": "",
+        "isBlockCoverage": true,
+        "ranges": [
+          {
+            "startOffset": 0,
+            "endOffset": 81,
+            "count": 1
+          }
+        ]
       },
       {
-        "start": 73,
-        "end": 93
+        "functionName": "e",
+        "isBlockCoverage": true,
+        "ranges": [
+          {
+            "startOffset": 5,
+            "endOffset": 66,
+            "count": 1
+          }
+        ]
       }
-    ],
-    "text": "\n    function e(num4, num5, num6) {\n      return num4 * num5 - num6;\n    }\n    e(3,5,6);\n    "
+    ]
   }
 ]

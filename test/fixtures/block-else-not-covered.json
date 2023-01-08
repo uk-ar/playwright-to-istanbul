@@ -1,12 +1,25 @@
 [
   {
     "url": "file:////home/yuuki.linux/puppeteer-to-istanbul/test/sample_js/block-else-not-covered.js",
-    "ranges": [
+    "scriptId": "4",
+    "source": "if (true) {\n  console.info('hello world!')\n} else {\n  function fib () {\n    return 'i am the fibonacci sequence'\n  }\n}",
+    "functions": [
       {
-        "start": 0,
-        "end": 44
+        "functionName": "",
+        "isBlockCoverage": true,
+        "ranges": [
+          {
+            "startOffset": 0,
+            "endOffset": 118,
+            "count": 1
+          },
+          {
+            "startOffset": 44,
+            "endOffset": 118,
+            "count": 0
+          }
+        ]
       }
-    ],
-    "text": "if (true) {\n  console.info('hello world!')\n} else {\n  function fib () {\n    return 'i am the fibonacci sequence'\n  }\n}"
+    ]
   }
 ]

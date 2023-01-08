@@ -1,20 +1,42 @@
 [
   {
-    "url": "file:////home/yuuki.linux/puppeteer-to-istanbul/test/sample_js/function-coverage-missing-1.js",
-    "ranges": [
+    "url": "file:////home/yuuki.linux/puppeteer-to-istanbul/test/sample_js/function-coverage-missing.js",
+    "scriptId": "4",
+    "source": "function a (num1, num2) {\n  return num1 + num2\n}\n\nfunction b (num) {\n  return num + 1\n}\n\na(1, 2)\n",
+    "functions": [
       {
-        "start": 0,
-        "end": 46
+        "functionName": "",
+        "isBlockCoverage": true,
+        "ranges": [
+          {
+            "startOffset": 0,
+            "endOffset": 97,
+            "count": 1
+          }
+        ]
       },
       {
-        "start": 47,
-        "end": 50
+        "functionName": "a",
+        "isBlockCoverage": true,
+        "ranges": [
+          {
+            "startOffset": 0,
+            "endOffset": 48,
+            "count": 1
+          }
+        ]
       },
       {
-        "start": 87,
-        "end": 97
+        "functionName": "b",
+        "isBlockCoverage": false,
+        "ranges": [
+          {
+            "startOffset": 50,
+            "endOffset": 87,
+            "count": 0
+          }
+        ]
       }
-    ],
-    "text": "function a(num1, num2) {\n  return num1 + num2;\n}\n\nfunction b(num) {\n  return num + 1;\n}\n\na(1, 2);"
+    ]
   }
 ]
