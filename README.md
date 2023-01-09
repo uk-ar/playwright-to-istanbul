@@ -1,6 +1,6 @@
 # Playwright to Istanbul
 
-[![Build Status](https://travis-ci.org/istanbuljs/puppeteer-to-istanbul.svg?branch=master)](https://travis-ci.org/istanbuljs/puppeteer-to-istanbul)
+[![Node.js CI](https://github.com/uk-ar/playwright-to-istanbul/actions/workflows/node.js.yml/badge.svg)](https://github.com/uk-ar/playwright-to-istanbul/actions/workflows/node.js.yml)
 [![Coverage Status](https://coveralls.io/repos/github/istanbuljs/puppeteer-to-istanbul/badge.svg?branch=master)](https://coveralls.io/github/istanbuljs/puppeteer-to-istanbul?branch=master)
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/conventional-changelog/standard-version)
 
