@@ -17,6 +17,16 @@ describe('puppeteer-to-istanbul', () => {
     fs.unlinkSync('.nyc_output/out.json')
   })
 
+  it('outputs a valid out.json file with erb & css', () => {
+    const fixture = require('./fixtures/http-erb-css.json')
+    const pti = PuppeteerToIstanbul(fixture)
+    pti.writeIstanbulFormat()
+    const content = fs.readFileSync('.nyc_output/out.json', 'utf8')
+    const jsonObject = JSON.parse(content)
+    should.exist(jsonObject)
+    fs.unlinkSync('.nyc_output/out.json')
+  })
+
   it('outputs a valid out.json file, in the custom location', () => {
     const fixture = require('./fixtures/two-inline.json')
     const pti = PuppeteerToIstanbul(fixture, { storagePath: '.nyc_output/custom' })

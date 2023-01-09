@@ -47,8 +47,8 @@ describe('output-files', () => {
     OutputFiles.resetIterator()
     const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
     
-    coverageInfo[0].url.should.include('playwrightTemp.html')
-    coverageInfo[1].url.should.include('playwrightTemp-1.html')
+    coverageInfo[0].url.should.include('playwrightTemp.html.js')
+    coverageInfo[1].url.should.include('playwrightTemp.html-1.js')
   })
 
   it('appropriately handles inline and external JavaScript', () => {
@@ -56,7 +56,7 @@ describe('output-files', () => {
     const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
 
     coverageInfo[0].url.should.eql(movedUrl(fixture[0].url))
-    coverageInfo[1].url.should.include('playwrightTemp.html')
+    coverageInfo[1].url.should.include('playwrightTemp.html.js')
   })
 
   it('appropriately handles two cases of inline JavaScript', () => {
@@ -65,8 +65,8 @@ describe('output-files', () => {
     OutputFiles.resetIterator()
     const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
 
-    coverageInfo[0].url.should.include('playwrightTemp.html')
-    coverageInfo[1].url.should.include('playwrightTemp-1.html')
+    coverageInfo[0].url.should.include('playwrightTemp.html.js')
+    coverageInfo[1].url.should.include('playwrightTemp.html-1.js')
   })
 
   it('appropriately handles modules required via http/https', () => {
@@ -104,11 +104,11 @@ describe('output-files', () => {
     const coverageInfo = OutputFiles(fixture).getTransformedCoverage().map(info => ({ ...info, url: info.url.replace(/\\/g, '/') }))
 
     coverageInfo[0].url.should.include('sample.js')
-    coverageInfo[1].url.should.include('hello.erb')
-    coverageInfo[2].url.should.include('hello-1.erb')
-    coverageInfo[3].url.should.include('style.css')
-    coverageInfo[4].url.should.include('hello-2.erb')
-    coverageInfo[5].url.should.include('hello-3.erb')
+    coverageInfo[1].url.should.include('hello.erb.js')
+    coverageInfo[2].url.should.include('hello.erb-1.js')
+    coverageInfo[3].url.should.include('style.css.js')
+    coverageInfo[4].url.should.include('hello.erb-2.js')
+    coverageInfo[5].url.should.include('hello.erb-3.js')
   })
 
   it('maintains original url with erb&css in output', () => {
