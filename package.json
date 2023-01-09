@@ -31,7 +31,7 @@
     "mocha": "^10.2.0",
     "playwright": "^1.29.2",
     "rimraf": "^3.0.0",
-    "standard": "^11.0.0"
+    "standard": "^17.0.0"
   },
   "dependencies": {
     "clone": "^2.1.2",
