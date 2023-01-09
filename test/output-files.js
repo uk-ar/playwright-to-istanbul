@@ -46,7 +46,7 @@ describe('output-files', () => {
     // Reset iterator
     OutputFiles.resetIterator()
     const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
-    
+
     coverageInfo[0].url.should.include('playwrightTemp.html.js')
     coverageInfo[1].url.should.include('playwrightTemp.html-1.js')
   })
@@ -123,7 +123,7 @@ describe('output-files', () => {
     coverageInfo[5].originalUrl.should.equal(fixture[5].url)
   })
 
-  function cleanupCoverage() {
+  function cleanupCoverage () {
     rimraf.sync(storagePathTop)
   }
 

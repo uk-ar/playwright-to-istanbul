@@ -23,7 +23,7 @@ require('yargs') // eslint-disable-line
   .demandCommand(1)
   .argv
 
-async function outputPlaywrightCoverage(input, output) {
+async function outputPlaywrightCoverage (input, output) {
   const browser = await chromium.launch()
   const page = await browser.newPage()
 
@@ -61,7 +61,7 @@ e(3,5,6);
   fs.writeFileSync('/tmp/playwrightTemp.html', pageHtml, 'utf8')
 
   // Navigate to page
-  //let url = 'file:///' + '/tmp/playwrightTemp.html'
+  // let url = 'file:///' + '/tmp/playwrightTemp.html'
   let url = 'http://' + 'localhost:8099/hello.erb'
   await page.goto(url)
   // node bin/puppeteer-js-runner.js ./test/sample_js/function-coverage-100.js ./test/fixtures/function-coverage-full-duplicate.json
@@ -74,16 +74,6 @@ e(3,5,6);
     page.coverage.stopCSSCoverage()
   ])
 
-  fs.writeFileSync(output, JSON.stringify([...jsCoverage,...cssCoverage], null, 2), 'utf8')
-
-  let totalBytes = 0
-  let usedBytes = 0
-  const coverage = [...jsCoverage, ...cssCoverage]
-  /*for (const entry of coverage) {
-    totalBytes += entry.text.length
-    for (const range of entry.ranges) { usedBytes += range.end - range.start - 1 }
-  }
-  console.log(`Bytes used: ${usedBytes / totalBytes * 100}%`)
-  */
+  fs.writeFileSync(output, JSON.stringify([...jsCoverage, ...cssCoverage], null, 2), 'utf8')
   await browser.close()
 }
