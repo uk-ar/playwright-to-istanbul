@@ -46,9 +46,9 @@ describe('output-files', () => {
     // Reset iterator
     OutputFiles.resetIterator()
     const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
-
-    coverageInfo[0].url.should.include('puppeteerTemp-inline.js')
-    coverageInfo[1].url.should.include('puppeteerTemp-inline-1.js')
+    
+    coverageInfo[0].url.should.include('playwrightTemp.html')
+    coverageInfo[1].url.should.include('playwrightTemp-1.html')
   })
 
   it('appropriately handles inline and external JavaScript', () => {
@@ -56,7 +56,7 @@ describe('output-files', () => {
     const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
 
     coverageInfo[0].url.should.eql(movedUrl(fixture[0].url))
-    coverageInfo[1].url.should.include('puppeteerTemp-inline.js')
+    coverageInfo[1].url.should.include('playwrightTemp.html')
   })
 
   it('appropriately handles two cases of inline JavaScript', () => {
@@ -65,8 +65,8 @@ describe('output-files', () => {
     OutputFiles.resetIterator()
     const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
 
-    coverageInfo[0].url.should.include('puppeteerTemp-inline.js')
-    coverageInfo[1].url.should.include('puppeteerTemp-inline-1.js')
+    coverageInfo[0].url.should.include('playwrightTemp.html')
+    coverageInfo[1].url.should.include('playwrightTemp-1.html')
   })
 
   it('appropriately handles modules required via http/https', () => {
@@ -99,7 +99,31 @@ describe('output-files', () => {
     coverageInfo[3].originalUrl.should.equal(fixture[3].url)
   })
 
-  function cleanupCoverage () {
+  it('appropriately handles erb&css required via http/https', () => {
+    const fixture = require('./fixtures/http-erb-css.json')
+    const coverageInfo = OutputFiles(fixture).getTransformedCoverage().map(info => ({ ...info, url: info.url.replace(/\\/g, '/') }))
+
+    coverageInfo[0].url.should.include('sample.js')
+    coverageInfo[1].url.should.include('hello.erb')
+    coverageInfo[2].url.should.include('hello-1.erb')
+    coverageInfo[3].url.should.include('style.css')
+    coverageInfo[4].url.should.include('hello-2.erb')
+    coverageInfo[5].url.should.include('hello-3.erb')
+  })
+
+  it('maintains original url with erb&css in output', () => {
+    const fixture = require('./fixtures/http-erb-css.json')
+    const coverageInfo = OutputFiles(fixture).getTransformedCoverage()
+
+    coverageInfo[0].originalUrl.should.equal(fixture[0].url)
+    coverageInfo[1].originalUrl.should.equal(fixture[1].url)
+    coverageInfo[2].originalUrl.should.equal(fixture[2].url)
+    coverageInfo[3].originalUrl.should.equal(fixture[3].url)
+    coverageInfo[4].originalUrl.should.equal(fixture[4].url)
+    coverageInfo[5].originalUrl.should.equal(fixture[5].url)
+  })
+
+  function cleanupCoverage() {
     rimraf.sync(storagePathTop)
   }
 

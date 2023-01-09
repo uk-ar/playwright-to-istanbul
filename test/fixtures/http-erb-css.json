@@ -1,0 +1,123 @@
+[
+  {
+    "url": "http://localhost:8099/sample.js",
+    "scriptId": "4",
+    "source": "function ShowAlart2() {\n    alert(\"Hello world!!\");\n}\nconsole.log(\"sample\");",
+    "functions": [
+      {
+        "functionName": "",
+        "isBlockCoverage": true,
+        "ranges": [
+          {
+            "startOffset": 0,
+            "endOffset": 76,
+            "count": 1
+          }
+        ]
+      },
+      {
+        "functionName": "ShowAlart2",
+        "isBlockCoverage": false,
+        "ranges": [
+          {
+            "startOffset": 0,
+            "endOffset": 53,
+            "count": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8099/hello.erb",
+    "scriptId": "5",
+    "source": "\n        function ShowAlart() {\n            alert(\"Hello world!!\");\n        }\n        console.log(\"hello\");\n        ",
+    "functions": [
+      {
+        "functionName": "",
+        "isBlockCoverage": true,
+        "ranges": [
+          {
+            "startOffset": 0,
+            "endOffset": 116,
+            "count": 1
+          }
+        ]
+      },
+      {
+        "functionName": "ShowAlart",
+        "isBlockCoverage": false,
+        "ranges": [
+          {
+            "startOffset": 9,
+            "endOffset": 77,
+            "count": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8099/hello.erb",
+    "scriptId": "6",
+    "source": "\n        function ShowAlart2() {\n            alert(\"Hello world!!\");\n        }\n        console.log(\"hello2\");\n        ",
+    "functions": [
+      {
+        "functionName": "",
+        "isBlockCoverage": true,
+        "ranges": [
+          {
+            "startOffset": 0,
+            "endOffset": 118,
+            "count": 1
+          }
+        ]
+      },
+      {
+        "functionName": "ShowAlart2",
+        "isBlockCoverage": false,
+        "ranges": [
+          {
+            "startOffset": 9,
+            "endOffset": 78,
+            "count": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8099/style.css",
+    "text": "h2 {background-color: #ccc;}\nh1 {font-size: 20px; color: red;}\n",
+    "ranges": [
+      {
+        "start": 29,
+        "end": 62
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8099/hello.erb",
+    "text": "\n            body {background-color: #ccc;}\n            p {font-size: 20px; color: red;}\n        ",
+    "ranges": [
+      {
+        "start": 13,
+        "end": 43
+      },
+      {
+        "start": 56,
+        "end": 88
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8099/hello.erb",
+    "text": "\n            body {color: #ddd;}\n            h3 { background-color: red;}\n        ",
+    "ranges": [
+      {
+        "start": 13,
+        "end": 32
+      }
+    ]
+  }
+]
