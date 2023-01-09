@@ -1,6 +1,6 @@
 [
   {
-    "url": "file:////home/yuuki.linux/puppeteer-to-istanbul/test/sample_js/block-else-not-covered.js",
+    "url": "file:////home/yuuki.linux/playwright-to-istanbul/test/sample_js/block-else-not-covered.js",
     "scriptId": "4",
     "source": "if (true) {\n  console.info('hello world!')\n} else {\n  function fib () {\n    return 'i am the fibonacci sequence'\n  }\n}",
     "functions": [

@@ -1,6 +1,6 @@
 [
   {
-    "url": "file:////home/yuuki.linux/puppeteer-to-istanbul/test/sample_js/block-logical-not-covered.js",
+    "url": "file:////home/yuuki.linux/playwright-to-istanbul/test/sample_js/block-logical-not-covered.js",
     "scriptId": "4",
     "source": "const a = true\n\nif (false) {\n  console.info('hello world!')\n} else if (a || !a) {\n  console.info('i did run')\n} else {\n  console.info('i should not run')\n}",
     "functions": [
