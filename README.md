@@ -1,24 +1,24 @@
-# Puppeteer to Istanbul
+# Playwright to Istanbul
 
 [![Build Status](https://travis-ci.org/istanbuljs/puppeteer-to-istanbul.svg?branch=master)](https://travis-ci.org/istanbuljs/puppeteer-to-istanbul)
 [![Coverage Status](https://coveralls.io/repos/github/istanbuljs/puppeteer-to-istanbul/badge.svg?branch=master)](https://coveralls.io/github/istanbuljs/puppeteer-to-istanbul?branch=master)
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/conventional-changelog/standard-version)
 
-Convert coverage from the format outputted by [puppeteer](https://developers.google.com/web/tools/puppeteer/) to a format consumable by [Istanbul][istanbul].
+Convert coverage from the format outputted by [Playwright](https://playwright.dev/) to a format consumable by [Istanbul][istanbul].
 
 ## Usage
 
-### To Output Coverage in Istanbul Format with Puppeteer
+### To Output Coverage in Istanbul Format with Playwright
 
-1. install _puppeteer_, `npm i -D puppeteer`.
-2. install _puppeteer-to-istanbul_, `npm i -D puppeteer-to-istanbul`.
-3. run your code in puppeteer with coverage enabled:
+1. install _playwright_, `npm init playwright@latest`.
+2. install _playwright-to-istanbul_, `npm i -D playwright-to-istanbul`.
+3. run your code in playwright with coverage enabled:
 
     ```js
     (async () => {
-      const pti = require('puppeteer-to-istanbul')
-      const puppeteer = require('puppeteer')
-      const browser = await puppeteer.launch()
+      const pti = require('playwright-to-istanbul')
+      const { chromium } = require('playwright');
+      const browser = await chromium.launch()
       const page = await browser.newPage()
 
       // Enable both JavaScript and CSS coverage
@@ -47,27 +47,26 @@ Convert coverage from the format outputted by [puppeteer](https://developers.goo
     nyc report --reporter=html
     ```
 
-_puppeteer-to-istanbul_ outputs temporary files in a format that can be
+_playwright-to-istanbul_ outputs temporary files in a format that can be
 consumed by nyc.
 
 see [istanbul](https://github.com/istanbuljs/istanbuljs/tree/master/packages/istanbul-reports/lib) for a list of possible reporters.
 
 ## Contributing
 
-The best way to get started with Puppeteer to Istanbul is by installing it for yourself and running tests.
+The best way to get started with Playwright to Istanbul is by installing it for yourself and running tests.
 PTI requires the most recent build of __v8toistanbul__ to function properly, so start by running `npm install`. 
 
 Next, ensure that all tests are passing before continuing by running `npm test` (or equivalently, `npm t`). This should generate a report that gives the same coverage as seen on this README. 
 
-Note that a majority of the tests run against pre-generated fixtures, or JSON snippets, that come from Puppeteer's raw output. These are located in the `\test\fixtures` area. To generate one of your own, write or use one of the scripts in the test area `test\sample_js`, and run `bin/puppeteer-js-runner.js` through node, like so: 
+Note that a majority of the tests run against pre-generated fixtures, or JSON snippets, that come from Playwright's raw output. These are located in the `\test\fixtures` area. To generate one of your own, write or use one of the scripts in the test area `test\sample_js`, and run `bin/puppeteer-js-runner.js` through node, like so: 
 
 `node bin/puppeteer-js-runner.js --file=/test/sample_js/sample2.js`.
 
-If you see an issue with Puppeteer to Istanbul, please open an issue! If you want to help improve Puppeteer to Istanbul, please fork the repository and open a pull request with your changes.
+If you see an issue with Playwright to Istanbul, please open an issue! If you want to help improve Playwright to Istanbul, please fork the repository and open a pull request with your changes.
 
 Make sure to review our [contributing guide][contributing] for specific guidelines on contributing.
 
-[coveralls]: https://github.com/GoogleChrome/puppeteer
 [istanbul]: https://github.com/istanbuljs/istanbuljs
 [nyc]: https://github.com/istanbuljs/nyc
-[contributing]: https://github.com/istanbuljs/puppeteer-to-istanbul/blob/master/CONTRIBUTING.md
+[contributing]: https://github.com/istanbuljs/playwright-to-istanbul/blob/master/CONTRIBUTING.md
