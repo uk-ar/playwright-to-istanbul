@@ -4,6 +4,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/istanbuljs/puppeteer-to-istanbul/badge.svg?branch=master)](https://coveralls.io/github/istanbuljs/puppeteer-to-istanbul?branch=master)
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/conventional-changelog/standard-version)
 
+> This is a fork of [istanbuljs/puppeteer-to-istanbul](https://github.com/istanbuljs/puppeteer-to-istanbul), if you are using puppeteer, i would suggest using original library. it has been modified and added a function to manually passing a page to a function and setting the coverage.
+
 Convert coverage from the format outputted by [Playwright](https://playwright.dev/) to a format consumable by [Istanbul][istanbul].
 
 ## Usage
