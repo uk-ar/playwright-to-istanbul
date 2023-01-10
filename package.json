@@ -40,7 +40,7 @@
     "yargs": "^17.6.2"
   },
   "standard": {
-    "ignore": "test/sample_js"
+    "ignore": ["/test/sample_js/"]
   },
   "c8": {
     "include": [

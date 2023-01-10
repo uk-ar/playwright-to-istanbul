@@ -4,7 +4,7 @@ const should = require('chai').should()
 const fs = require('fs')
 const OutputFiles = require('../lib/output-files')
 
-var PuppeteerToIstanbul = require('../lib/puppeteer-to-istanbul')
+const PuppeteerToIstanbul = require('../lib/puppeteer-to-istanbul')
 
 describe('puppeteer-to-istanbul', () => {
   it('outputs a valid out.json file, to the default location', () => {

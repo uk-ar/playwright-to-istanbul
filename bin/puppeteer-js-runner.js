@@ -62,7 +62,7 @@ e(3,5,6);
 
   // Navigate to page
   // let url = 'file:///' + '/tmp/playwrightTemp.html'
-  let url = 'http://' + 'localhost:8099/hello.erb'
+  const url = 'http://' + 'localhost:8099/hello.erb'
   await page.goto(url)
   // node bin/puppeteer-js-runner.js ./test/sample_js/function-coverage-100.js ./test/fixtures/function-coverage-full-duplicate.json
   // node bin/puppeteer-js-runner.js ./test/sample_js/function-coverage-100.js ./test/fixtures/function-coverage-full-duplicate.json
